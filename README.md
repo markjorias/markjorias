@@ -17,7 +17,6 @@
 
 ---
 
-**A Self-Taught Passionate FrontEnd Developer from Philippines ```PH```** <br>
 **Computer Science Student** at [Camarines Sur Polytechnic Colleges](https://cspc.edu.ph/);<br>
 **Committe on Creatives** at [JPCS - CSPC Chapter](https://facebook.com/jpcscspc);<br>
 
