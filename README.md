@@ -14,7 +14,9 @@
 <img height="40" width="40" src="https://cdn.simpleicons.org/photopea/75ff73" /> &ensp;
 
 </center>
+
 ---
+
 **A Self-Taught Passionate FrontEnd Developer from Philippines ```PH```**
 **Computer Science Student** at [Camarines Sur Polytechnic Colleges](https://cspc.edu.ph/);<br>
 **Committe on Creatives** at [JPCS - CSPC Chapter](https://facebook.com/jpcscspc);<br>
