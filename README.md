@@ -21,5 +21,5 @@
 **Committe on Creatives** at [JPCS - CSPC Chapter](https://facebook.com/jpcscspc);<br>
 
 - 🔍 **Exploring** Python, Java, Flask, Web Development
-- 💬 ```ping``` me about **design**, **development**, **design thinking**
+- 💬 ```ping``` me about **design**, **web development**, **design thinking**
 - 🛋️ to ```rest``` is to ***Genshin***
