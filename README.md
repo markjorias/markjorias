@@ -23,3 +23,9 @@
 - 🔍 **Exploring** Python, Java, Flask, Web Development
 - 💬 ```ping``` me about **design**, **web development**, **design thinking**
 - 🛋️ to ```rest``` is to ***Genshin***
+
+---
+<!-- Projects --!>
+<h3> 🚀 Projects </h3>
+<b><a href="https://github.com/markjorias/cccs105-projects/tree/main/hotel_receptionist_system">Hotel Receptionist System</a></b> - A web-based application that allows hotel staff to manage room bookings, check-ins, and check-outs efficiently. Built with Flask and MySQL.<br>
+
