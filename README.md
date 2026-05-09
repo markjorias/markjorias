@@ -2,18 +2,18 @@
   <h1>Hello there! 👋 I'm <b style="color: #75ff73;">Joseph</b></h1>
   <p><i>Computer Science Student & Creative Enthusiast</i></p>
 
-  <img src="https://api.iconify.design/simple-icons:python.svg?color=%2375ff73" height="40" width="40" alt="Python" />
-  <img src="https://api.iconify.design/simple-icons:flask.svg?color=%2375ff73" height="40" width="40" alt="Flask" />
-  <img src="https://api.iconify.design/simple-icons:mysql.svg?color=%2375ff73" height="40" width="40" alt="MySQL" />
-  <img src="https://api.iconify.design/simple-icons:postgresql.svg?color=%2375ff73" height="40" width="40" alt="PostgreSQL" />
-  <img src="https://api.iconify.design/simple-icons:supabase.svg?color=%2375ff73" height="40" width="40" alt="Supabase" />
-  <img src="https://api.iconify.design/simple-icons:html5.svg?color=%2375ff73" height="40" width="40" alt="HTML5" />
+  <img src="https://api.iconify.design/simple-icons:python.svg?color=%2375ff73" height="40" width="40" alt="Python" />&nbsp;
+  <img src="https://api.iconify.design/simple-icons:flask.svg?color=%2375ff73" height="40" width="40" alt="Flask" />&nbsp;
+  <img src="https://api.iconify.design/simple-icons:mysql.svg?color=%2375ff73" height="40" width="40" alt="MySQL" />&nbsp;
+  <img src="https://api.iconify.design/simple-icons:postgresql.svg?color=%2375ff73" height="40" width="40" alt="PostgreSQL" />&nbsp;
+  <img src="https://api.iconify.design/simple-icons:supabase.svg?color=%2375ff73" height="40" width="40" alt="Supabase" />&nbsp;
+  <img src="https://api.iconify.design/simple-icons:html5.svg?color=%2375ff73" height="40" width="40" alt="HTML5" />&nbsp;
   <img src="https://api.iconify.design/simple-icons:css3.svg?color=%2375ff73" height="40" width="40" alt="CSS3" />
-  <br>
-  <img src="https://api.iconify.design/simple-icons:figma.svg?color=%2375ff73" height="40" width="40" alt="Figma" />
-  <img src="https://api.iconify.design/cib:adobe-photoshop.svg?color=%2375ff73" height="40" width="40" alt="Photoshop" />
-  <img src="https://api.iconify.design/cib:adobe-illustrator.svg?color=%2375ff73" height="40" width="40" alt="Illustrator" />
-  <img src="https://api.iconify.design/cib:adobe-premiere.svg?color=%2375ff73" height="40" width="40" alt="Premiere" />
+  <br><br>
+  <img src="https://api.iconify.design/simple-icons:figma.svg?color=%2375ff73" height="40" width="40" alt="Figma" />&nbsp;
+  <img src="https://api.iconify.design/cib:adobe-photoshop.svg?color=%2375ff73" height="40" width="40" alt="Photoshop" />&nbsp;
+  <img src="https://api.iconify.design/cib:adobe-illustrator.svg?color=%2375ff73" height="40" width="40" alt="Illustrator" />&nbsp;
+  <img src="https://api.iconify.design/cib:adobe-premiere.svg?color=%2375ff73" height="40" width="40" alt="Premiere" />&nbsp;
   <img src="https://api.iconify.design/cib:adobe-after-effects.svg?color=%2375ff73" height="40" width="40" alt="After Effects" />
 </center>
 
