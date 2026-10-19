@@ -38,3 +38,15 @@ export async function getWorks(deps: WorksDeps = {}): Promise<Works> {
 
   return { status: "ok", featured, projects };
 }
+
+/** Featured studies are the only ones reachable by URL, so a private-repo study never renders. */
+export async function getFeaturedStudy(slug: string): Promise<CaseStudy | null> {
+  const works = await getWorks();
+  if (works.status !== "ok") return null;
+  return works.featured.find((s) => s.slug === slug) ?? null;
+}
+
+export async function featuredStudyParams(): Promise<{ slug: string }[]> {
+  const works = await getWorks();
+  return works.status === "ok" ? works.featured.map((s) => ({ slug: s.slug })) : [];
+}
