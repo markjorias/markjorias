@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Archivo, Archivo_Narrow } from "next/font/google";
+import Header from "@/components/Header";
+import { publicFileExists } from "@/lib/public-file";
+import { loadSite } from "@/lib/site";
 import "./globals.css";
 
 const display = Archivo_Narrow({
@@ -20,10 +23,15 @@ export const metadata: Metadata = {
     "Mark Joseph Orias is a computer science student at Camarines Sur Polytechnic Colleges. He builds web apps in Python and Flask, and designs the screens they run on.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const site = await loadSite();
+  const hasResume = publicFileExists("resume.pdf");
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>{children}</body>
+      <body>
+        <Header site={site} hasResume={hasResume} />
+        {children}
+      </body>
     </html>
   );
 }

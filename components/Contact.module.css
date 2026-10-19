@@ -1,0 +1,32 @@
+.contact {
+  display: grid;
+  gap: 1.25rem;
+  justify-items: start;
+}
+
+.lede {
+  max-width: 34rem;
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.email {
+  margin: 0;
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  color: var(--ink-heading);
+  overflow-wrap: anywhere;
+}
+
+.links {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.links a {
+  color: var(--ink-soft);
+  text-underline-offset: 0.25em;
+}
