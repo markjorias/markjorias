@@ -1,0 +1,63 @@
+.frame {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 1;
+}
+
+/* Crop marks just outside the frame, like a trimmed print. */
+.frame::before,
+.frame::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--ink);
+  border-style: solid;
+  pointer-events: none;
+}
+
+.frame::before {
+  top: -8px;
+  left: -8px;
+  border-width: 1px 0 0 1px;
+}
+
+.frame::after {
+  right: -8px;
+  bottom: -8px;
+  border-width: 0 1px 1px 0;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 1.2px solid var(--ink);
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: var(--ink);
+}
+
+.placeholder rect {
+  stroke-width: 1.2;
+  vector-effect: non-scaling-stroke;
+}
+
+.placeholder line {
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+  vector-effect: non-scaling-stroke;
+}
+
+.caption {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}

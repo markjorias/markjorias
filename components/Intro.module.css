@@ -1,0 +1,67 @@
+.sheet {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 20rem);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3.5rem);
+}
+
+.text {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.name {
+  font-size: clamp(2.75rem, 8vw, 4.5rem);
+  line-height: 0.95;
+}
+
+.role {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.lede {
+  max-width: 30rem;
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.stack {
+  max-width: 34rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+
+.photo {
+  padding-bottom: 1.5rem;
+}
+
+/* The text fades in only while the line drawing plays, so a remount never hides it. */
+.sheet:has(> :global(.animate)) .fade {
+  animation: fade-in 0.45s ease-out 0.15s both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 720px) {
+  .sheet {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .photo {
+    order: -1;
+    width: 160px;
+  }
+}
