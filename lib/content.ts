@@ -11,7 +11,9 @@ export class ContentError extends Error {
 
 export function contentDir(): string {
   const override = process.env.PORTFOLIO_CONTENT_DIR;
-  return override ? path.resolve(process.cwd(), override) : path.join(process.cwd(), "content");
+  // The override is for tests; keep it out of output tracing so only content/ ships with the server.
+  if (override) return path.resolve(/*turbopackIgnore: true*/ process.cwd(), override);
+  return path.join(process.cwd(), "content");
 }
 
 export function relativePath(file: string): string {

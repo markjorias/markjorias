@@ -1,0 +1,72 @@
+.card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+}
+
+.text {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+.title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  overflow-wrap: anywhere;
+}
+
+.summary {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.read {
+  font-weight: 500;
+  text-underline-offset: 0.25em;
+}
+
+/* The cover sits in a drawing frame with crop marks at two corners. */
+.cover {
+  position: relative;
+  border: 1px solid var(--ink);
+}
+
+.cover::before,
+.cover::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 0 solid var(--ink);
+}
+
+.cover::before {
+  top: -8px;
+  left: -8px;
+  border-width: 1px 0 0 1px;
+}
+
+.cover::after {
+  right: -8px;
+  bottom: -8px;
+  border-width: 0 1px 1px 0;
+}
+
+.cover img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 720px) {
+  .card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cover {
+    order: -1;
+  }
+}
