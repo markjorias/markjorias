@@ -1,0 +1,15 @@
+{
+  "name": "Joseph Orias",
+  "fullName": "Mark Joseph Orias",
+  "role": "Computer science student and designer",
+  "intro": "I build web apps in Python and Flask, and I design the screens they run on.",
+  "email": "oriasmjc@gmail.com",
+  "links": {
+    "github": "https://github.com/markjorias",
+    "linkedin": "https://www.linkedin.com/in/mark-joseph-orias-142043388/"
+  },
+  "stack": {
+    "code": ["Python", "HTML", "CSS", "Java", "Flask", "MySQL", "PostgreSQL", "Supabase"],
+    "design": ["Figma", "Photoshop", "Illustrator", "Premiere", "After Effects"]
+  }
+}
