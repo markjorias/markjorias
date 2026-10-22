@@ -22,12 +22,13 @@ export default function CaseStudyView({ study, titleId }: Props) {
           {study.title}
         </h1>
         <p className={styles.summary}>{study.summary}</p>
+        {study.isDemo && <p className={styles.demoNote}>Sample case study for preview purposes. This is an illustrative project.</p>}
         <p className={styles.meta}>
           <span>{study.role}</span>
-          <a href={`https://github.com/${study.repo}`} rel="noopener">
+          {!study.isDemo && <a href={`https://github.com/${study.repo}`} rel="noopener">
             Code
-          </a>
-          {study.demoUrl && (
+          </a>}
+          {!study.isDemo && study.demoUrl && (
             <a href={study.demoUrl} rel="noopener">
               Live demo
             </a>

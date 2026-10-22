@@ -6,20 +6,20 @@ import styles from "./ContactActions.module.css";
 type Props = { email: string; hasResume: boolean; compact?: boolean };
 
 export default function ContactActions({ email, hasResume, compact = false }: Props) {
-  const [copied, setCopied] = useState(false);
+  const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
 
   useEffect(() => {
-    if (!copied) return;
-    const timer = setTimeout(() => setCopied(false), 2000);
+    if (copyState !== "copied") return;
+    const timer = setTimeout(() => setCopyState("idle"), 2000);
     return () => clearTimeout(timer);
-  }, [copied]);
+  }, [copyState]);
 
   async function copyEmail() {
     try {
       await navigator.clipboard.writeText(email);
-      setCopied(true);
+      setCopyState("copied");
     } catch {
-      // Clipboard can be blocked; the mailto link still works.
+      setCopyState("failed");
     }
   }
 
@@ -30,13 +30,19 @@ export default function ContactActions({ email, hasResume, compact = false }: Pr
       </a>
       {!compact && (
         <button type="button" className={styles.button} onClick={copyEmail}>
-          <span aria-live="polite">{copied ? "Copied" : "Copy email"}</span>
+          <span aria-live="polite">{copyState === "copied" ? "Copied" : "Copy email"}</span>
         </button>
       )}
       {hasResume && (
         <a className={styles.button} href="/resume.pdf" download>
           Download resume
         </a>
+      )}
+      {copyState === "failed" && (
+        <p className={styles.feedback} role="alert">
+          Couldn&apos;t copy. Use Email me or copy this address manually: {" "}
+          <span className={styles.address}>{email}</span>
+        </p>
       )}
     </div>
   );

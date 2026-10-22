@@ -2,7 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("featured card opens modal with its own URL, Escape returns home", async ({ page }) => {
   await page.goto("/");
-  await page.getByRole("link", { name: "Read case study" }).click();
+  await page.getByRole("link", { name: "Read case study: PyLex" }).click();
   await expect(page).toHaveURL(/\/work\/pylex$/);
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.keyboard.press("Escape");

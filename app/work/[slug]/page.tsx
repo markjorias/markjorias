@@ -23,7 +23,7 @@ export default async function CaseStudyPage({ params }: Props) {
   const study = await getFeaturedStudy((await params).slug);
   if (!study) notFound();
   return (
-    <main className={`container ${styles.page}`}>
+    <main id="main-content" tabIndex={-1} className={`container ${styles.page}`}>
       <Link className={styles.back} href="/#work">
         Back to all work
       </Link>

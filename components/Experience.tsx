@@ -5,8 +5,8 @@ type Props = { entries: ExperienceEntry[] };
 
 export default function Experience({ entries }: Props) {
   return (
-    <div className="container">
-      <h2>Experience</h2>
+    <div className={`container ${styles.layout}`}>
+      <h2 className={styles.heading}>Experience</h2>
       <ol className={styles.timeline}>
         {entries.map((entry) => (
           <li key={`${entry.title}-${entry.org}`} className={styles.entry}>

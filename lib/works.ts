@@ -1,5 +1,6 @@
 import { PHASE_PRODUCTION_BUILD } from "next/constants";
 import { loadCaseStudies } from "./case-studies";
+import { getDemoWorks } from "./demo-works";
 import { fetchPublicRepos, selectPortfolioRepos } from "./github";
 import type { CaseStudy, GitHubRepo, Works } from "./types";
 
@@ -7,6 +8,7 @@ type WorksDeps = {
   fetchRepos?: () => Promise<GitHubRepo[]>;
   loadStudies?: () => Promise<CaseStudy[]>;
   isBuildPhase?: boolean;
+  demoMode?: boolean;
 };
 
 export async function getWorks(deps: WorksDeps = {}): Promise<Works> {
@@ -14,7 +16,10 @@ export async function getWorks(deps: WorksDeps = {}): Promise<Works> {
     fetchRepos = () => fetchPublicRepos(),
     loadStudies = () => loadCaseStudies(),
     isBuildPhase = process.env.NEXT_PHASE === PHASE_PRODUCTION_BUILD,
+    demoMode = process.env.PORTFOLIO_DEMO === "1",
   } = deps;
+
+  if (demoMode) return getDemoWorks();
 
   // Content errors always surface, so load studies before deciding how to handle GitHub.
   const [studies, fetched] = await Promise.all([loadStudies(), fetchRepos().then(

@@ -11,8 +11,11 @@ test("sections in order and projects from GitHub", async ({ page }) => {
 
 test("no horizontal scroll", async ({ page }) => {
   await page.goto("/");
-  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-  expect(overflow).toBeLessThanOrEqual(0);
+  for (const width of [320, 390, 600, 768, 1280]) {
+    await page.setViewportSize({ width, height: 800 });
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    expect(overflow, `horizontal overflow at ${width}px`).toBeLessThanOrEqual(0);
+  }
 });
 
 test("reduced motion: content visible immediately", async ({ browser }) => {
@@ -28,4 +31,16 @@ test("keyboard focus is visible", async ({ page }) => {
   await page.keyboard.press("Tab");
   const outline = await page.evaluate(() => getComputedStyle(document.activeElement!).outlineStyle);
   expect(outline).not.toBe("none");
+  await expect(page.getByRole("link", { name: "Skip to content" })).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("main")).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: "View work" })).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/#work$/);
+  await expect.poll(async () => {
+    const heading = await page.getByRole("heading", { name: "Work", exact: true }).boundingBox();
+    const header = await page.getByRole("banner").boundingBox();
+    return heading!.y - (header!.y + header!.height);
+  }).toBeGreaterThanOrEqual(0);
 });

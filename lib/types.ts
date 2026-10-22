@@ -36,6 +36,7 @@ export type Project = {
 };
 
 export type CaseStudy = {
+  isDemo?: boolean;
   slug: string;
   title: string;
   summary: string;
@@ -48,5 +49,5 @@ export type CaseStudy = {
 };
 
 export type Works =
-  | { status: "ok"; featured: CaseStudy[]; projects: Project[] }
+  | { status: "ok"; isDemo?: boolean; featured: CaseStudy[]; projects: Project[] }
   | { status: "unavailable" };

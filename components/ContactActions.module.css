@@ -37,7 +37,23 @@
 }
 
 .compact .button {
-  min-height: 2.25rem;
+  min-height: 2.75rem;
   padding: 0.3rem 0.8rem;
   font-size: 0.9375rem;
+}
+
+.feedback {
+  flex-basis: 100%;
+  min-width: 0;
+  max-width: 36rem;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  overflow-wrap: anywhere;
+}
+
+.address {
+  color: var(--ink);
+  font-weight: 500;
+  user-select: all;
 }

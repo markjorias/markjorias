@@ -19,6 +19,7 @@ const body = Archivo({
 });
 
 export const metadata: Metadata = {
+  robots: process.env.PORTFOLIO_DEMO === "1" ? { index: false, follow: false } : undefined,
   title: "Joseph Orias, computer science student and designer",
   description:
     "Mark Joseph Orias is a computer science student at Camarines Sur Polytechnic Colleges. He builds web apps in Python and Flask, and designs the screens they run on.",
@@ -33,6 +34,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <Header site={site} hasResume={hasResume} />
         <MotionProvider>
           {children}

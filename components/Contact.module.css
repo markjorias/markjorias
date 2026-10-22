@@ -1,21 +1,47 @@
 .contact {
+  --paper: #163a82;
+  --ink: #edf1f2;
+  --ink-heading: #ffffff;
+  --ink-soft: #d1ddf0;
   display: grid;
-  gap: 1.25rem;
+  gap: 1.5rem;
   justify-items: start;
+  padding: clamp(1.5rem, 5vw, 3.5rem);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 1.5rem 3rem;
+  width: 100%;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #5575a8;
 }
 
 .lede {
   max-width: 34rem;
   margin: 0;
   font-size: 1.125rem;
+  color: var(--ink-soft);
 }
 
 .email {
-  margin: 0;
+  max-width: 100%;
+  padding-block: 0.25rem;
   font-family: var(--font-display), "Arial Narrow", sans-serif;
-  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  font-size: clamp(1.5rem, 4.5vw, 3.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   color: var(--ink-heading);
+  text-decoration: none;
   overflow-wrap: anywhere;
+}
+
+.email:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .links {
@@ -26,7 +52,27 @@
   list-style: none;
 }
 
-.links a {
-  color: var(--ink-soft);
+.links a,
+.footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   text-underline-offset: 0.25em;
+}
+
+.links a { color: var(--ink-soft); }
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  padding-top: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 720px) {
+  .intro { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
 }

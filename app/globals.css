@@ -1,6 +1,7 @@
 :root {
   --paper: #edf1f2;
   --grid: #c8d6ec;
+  --grid-faint: #dce4eb;
   --ink: #1c4596;
   --ink-heading: #163a82;
   --ink-soft: #2d4f8f;
@@ -22,8 +23,8 @@ body {
   min-height: 100vh;
   background-color: var(--paper);
   background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    linear-gradient(var(--grid-faint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-faint) 1px, transparent 1px);
   background-size: var(--grid-size) var(--grid-size);
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
@@ -40,10 +41,36 @@ h3 {
   font-weight: 600;
   color: var(--ink-heading);
   line-height: 1.1;
+  text-wrap: balance;
 }
 
 a {
   color: inherit;
+  text-decoration-thickness: 1px;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+html {
+  scrollbar-color: var(--ink-soft) var(--paper);
+}
+
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--ink-heading);
+  color: var(--paper);
+  transform: translateY(-200%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 img,
@@ -78,8 +105,17 @@ svg {
 }
 
 main > section {
-  padding-block: clamp(3rem, 8vw, 6rem);
-  scroll-margin-top: 4rem;
+  padding-block: clamp(2.75rem, 6vw, 5rem);
+  scroll-margin-top: 5rem;
+}
+
+main > section:first-child {
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+
+@media (max-width: 760px) {
+  main > section { scroll-margin-top: 8rem; }
 }
 
 main > section:empty {

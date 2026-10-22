@@ -17,6 +17,35 @@ test("email link and copy feedback", async () => {
   expect(await screen.findByText("Copied")).toBeInTheDocument();
 });
 
+test("failed copy offers a manual address and clears the error after a successful retry", async () => {
+  const writeText = vi.fn()
+    .mockRejectedValueOnce(new DOMException("Clipboard denied", "NotAllowedError"))
+    .mockResolvedValue(undefined);
+  Object.assign(navigator, { clipboard: { writeText } });
+  render(<ContactActions email="oriasmjc@gmail.com" hasResume={false} />);
+
+  await userEvent.click(screen.getByRole("button", { name: "Copy email" }));
+
+  expect(await screen.findByRole("alert")).toHaveTextContent("oriasmjc@gmail.com");
+  expect(screen.getByRole("link", { name: "Email me" })).toHaveAttribute("href", "mailto:oriasmjc@gmail.com");
+  expect(screen.queryByText("Copied")).toBeNull();
+
+  await userEvent.click(screen.getByRole("button", { name: "Copy email" }));
+
+  expect(await screen.findByText("Copied")).toBeInTheDocument();
+  expect(screen.queryByRole("alert")).toBeNull();
+});
+
+test("copy offers a manual address when the browser has no clipboard API", async () => {
+  Object.assign(navigator, { clipboard: undefined });
+  render(<ContactActions email="oriasmjc@gmail.com" hasResume={false} />);
+
+  await userEvent.click(screen.getByRole("button", { name: "Copy email" }));
+
+  expect(await screen.findByRole("alert")).toHaveTextContent("oriasmjc@gmail.com");
+  expect(screen.queryByText("Copied")).toBeNull();
+});
+
 test("resume link only when the PDF exists", () => {
   const { rerender } = render(<ContactActions email="a@b.co" hasResume={false} />);
   expect(screen.queryByRole("link", { name: "Download resume" })).toBeNull();

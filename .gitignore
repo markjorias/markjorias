@@ -1,6 +1,7 @@
 .superpowers/
 node_modules/
 .next/
+.next-demo/
 out/
 .vercel/
 next-env.d.ts

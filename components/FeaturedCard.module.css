@@ -14,6 +14,10 @@
   justify-items: start;
 }
 
+.textOnly { grid-template-columns: minmax(0, 1fr); }
+
+.textOnly .summary { max-width: 65ch; }
+
 .title {
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   overflow-wrap: anywhere;
@@ -25,6 +29,9 @@
 }
 
 .read {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   font-weight: 500;
   text-underline-offset: 0.25em;
 }

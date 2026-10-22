@@ -13,7 +13,7 @@ export default async function Home() {
   const [site, experience, works] = await Promise.all([loadSite(), loadExperience(), getWorks()]);
   const hasResume = publicFileExists("resume.pdf");
   return (
-    <main>
+    <main id="main-content" tabIndex={-1}>
       <section id="intro">
         <Intro site={site} hasPhoto={publicFileExists("photo.jpg")} hasResume={hasResume} />
       </section>

@@ -1,10 +1,22 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem 3rem;
+}
+
+.heading {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ink);
+}
+
 .timeline {
   position: relative;
   display: grid;
-  gap: 2rem;
+  gap: 1.75rem;
   max-width: 44rem;
-  margin: 2rem 0 0;
-  padding: 0 0 0 2rem;
+  margin: 0;
+  padding: 1.5rem 0 0 2rem;
+  border-top: 1px solid var(--ink);
   list-style: none;
 }
 
@@ -12,7 +24,7 @@
 .timeline::before {
   content: "";
   position: absolute;
-  top: 0.4rem;
+  top: 1.9rem;
   bottom: 0.4rem;
   left: 0.5rem;
   border-left: 1px solid var(--ink);
@@ -20,6 +32,8 @@
 
 .entry {
   position: relative;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--grid);
 }
 
 .entry::before {
@@ -39,6 +53,12 @@
 .period,
 .summary {
   margin: 0.25rem 0 0;
+}
+
+@media (max-width: 720px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .timeline { border-top: 0; padding-top: 0; }
+  .timeline::before { top: 0.4rem; }
 }
 
 .org a {

@@ -6,6 +6,14 @@ After you change a file, commit and push. Vercel rebuilds the site on its own.
 
 ## Show a project in Work
 
+### Preview with sample data
+
+Run `pnpm dev:demo` to preview a filled Work section with one sample case study and three sample projects. The preview is clearly labeled, needs no GitHub connection, and uses the data in `lib/demo-works.ts`. Sample cards have no pretend repository or live-demo links.
+
+Use `pnpm dev` to return to real GitHub content. For a production preview, set `PORTFOLIO_DEMO=1` when building and running the site; leave it unset for your real portfolio. Demo pages request that search engines do not index them.
+
+### Publish your real work
+
 1. On GitHub, make the repo **public**.
 2. Add the topic **`portfolio`** to the repo (the gear icon next to "About" on the repo page).
 3. Wait about an hour. The site checks GitHub once an hour.
@@ -38,7 +46,7 @@ Put the PDF at `public/resume.pdf`. A "Download resume" button appears in the he
 
 ## Add a photo
 
-Put a square photo at `public/photo.jpg`. It replaces the drawn placeholder in the intro.
+Put a square photo at `public/photo.jpg`. It replaces the desktop monogram in the intro and appears below the introduction on mobile.
 
 ## Write a featured case study
 

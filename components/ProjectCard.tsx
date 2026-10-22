@@ -1,9 +1,9 @@
 import type { Project } from "@/lib/types";
 import styles from "./ProjectCard.module.css";
 
-type Props = { project: Project };
+type Props = { project: Project; isDemo?: boolean };
 
-export default function ProjectCard({ project }: Props) {
+export default function ProjectCard({ project, isDemo = false }: Props) {
   return (
     <article className={styles.card}>
       <svg className={styles.outline} aria-hidden="true" focusable="false">
@@ -22,13 +22,19 @@ export default function ProjectCard({ project }: Props) {
         </p>
       )}
       <p className={styles.links}>
-        <a href={project.repoUrl} rel="noopener">
-          Code
-        </a>
-        {project.demoUrl && (
-          <a href={project.demoUrl} rel="noopener">
-            Live demo
-          </a>
+        {isDemo ? (
+          <span className={styles.sample}>Sample project</span>
+        ) : (
+          <>
+            <a href={project.repoUrl} rel="noopener" aria-label={`Code for ${project.name}`}>
+              Code
+            </a>
+            {project.demoUrl && (
+              <a href={project.demoUrl} rel="noopener" aria-label={`Live demo of ${project.name}`}>
+                Live demo
+              </a>
+            )}
+          </>
         )}
       </p>
     </article>

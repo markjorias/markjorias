@@ -27,8 +27,8 @@ test("experience renders entries in order with org links", () => {
 test("project card hides null fields and empty demo", () => {
   render(<ProjectCard project={{ ...bareProject, description: null, language: null, demoUrl: null }} />);
   expect(screen.queryByText(/null/)).toBeNull();
-  expect(screen.queryByRole("link", { name: "Live demo" })).toBeNull();
-  expect(screen.getByRole("link", { name: "Code" })).toHaveAttribute("href", bareProject.repoUrl);
+  expect(screen.queryByRole("link", { name: /Live demo/ })).toBeNull();
+  expect(screen.getByRole("link", { name: `Code for ${bareProject.name}` })).toHaveAttribute("href", bareProject.repoUrl);
 });
 
 test("empty works shows on-the-way state with GitHub link", () => {
@@ -44,5 +44,5 @@ test("unavailable works is never blank", () => {
 
 test("featured block appears only when there are featured studies", () => {
   render(<Works works={{ status: "ok", featured: [pylexStudy], projects: [ecoProject] }} githubUrl="x" />);
-  expect(screen.getByRole("link", { name: "Read case study" })).toHaveAttribute("href", "/work/pylex");
+  expect(screen.getByRole("link", { name: "Read case study: PyLex" })).toHaveAttribute("href", "/work/pylex");
 });

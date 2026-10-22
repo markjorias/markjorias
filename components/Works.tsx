@@ -19,7 +19,15 @@ function GitHubNote({ message, githubUrl }: { message: string; githubUrl: string
 export default function Works({ works, githubUrl }: Props) {
   return (
     <div className="container">
-      <h2>Work</h2>
+      <div className={styles.heading}>
+        <h2>Work</h2>
+        {works.status === "ok" && (works.projects.length > 0 || works.featured.length > 0) && (
+          <a href={githubUrl} rel="noopener">GitHub profile</a>
+        )}
+      </div>
+      {works.status === "ok" && works.isDemo && (
+        <p className={styles.demoNote}>Demo preview. The projects and case study below are sample content.</p>
+      )}
       {works.status === "unavailable" ? (
         <GitHubNote message="Projects couldn't be loaded right now." githubUrl={githubUrl} />
       ) : works.featured.length === 0 && works.projects.length === 0 ? (
@@ -36,7 +44,7 @@ export default function Works({ works, githubUrl }: Props) {
           {works.projects.length > 0 && (
             <div className={styles.grid}>
               {works.projects.map((project) => (
-                <ProjectCard key={project.fullName} project={project} />
+                <ProjectCard key={project.fullName} project={project} isDemo={works.isDemo} />
               ))}
             </div>
           )}

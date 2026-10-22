@@ -36,22 +36,40 @@
   border: 1.2px solid var(--ink);
 }
 
-.placeholder {
+.monogram {
+  position: relative;
+  display: grid;
+  place-items: center;
   width: 100%;
   height: 100%;
-  fill: none;
-  stroke: var(--ink);
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink-heading);
 }
 
-.placeholder rect {
-  stroke-width: 1.2;
-  vector-effect: non-scaling-stroke;
+.monogram::before,
+.monogram::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
 }
 
-.placeholder line {
-  stroke-width: 1;
-  stroke-dasharray: 3 5;
-  vector-effect: non-scaling-stroke;
+.monogram::before {
+  inset: 18% -5%;
+  border-block: 1px dashed var(--grid);
+}
+
+.monogram::after {
+  inset: -5% 18%;
+  border-inline: 1px dashed var(--grid);
+}
+
+.monogram span {
+  font-family: var(--font-display), "Arial Narrow", sans-serif;
+  font-size: clamp(7rem, 13vw, 11rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
 }
 
 .caption {
@@ -60,4 +78,6 @@
   left: 0;
   font-size: 0.75rem;
   color: var(--ink-soft);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

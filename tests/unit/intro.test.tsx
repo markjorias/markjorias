@@ -6,15 +6,15 @@ import type { SiteConfig } from "@/lib/types";
 
 const fixtureSite: SiteConfig = JSON.parse(fs.readFileSync("tests/fixtures/content/site.json", "utf8"));
 
-test("shows name, role, intro, and placeholder photo", () => {
+test("shows name, role, intro, and monogram when no photo exists", () => {
   render(<Intro site={fixtureSite} hasPhoto={false} hasResume={false} />);
   expect(screen.getByRole("heading", { level: 1, name: "Joseph Orias" })).toBeInTheDocument();
   expect(screen.getByText("Computer science student and designer")).toBeInTheDocument();
-  expect(screen.getByText("Photo, 1:1")).toBeInTheDocument();
+  expect(screen.getByText("Code & design")).toBeInTheDocument();
 });
 
 test("real photo replaces placeholder", () => {
   render(<PhotoFrame hasPhoto alt="Joseph Orias" />);
   expect(screen.getByRole("img", { name: "Joseph Orias" })).toBeInTheDocument();
-  expect(screen.queryByText("Photo, 1:1")).toBeNull();
+  expect(screen.queryByText("Code & design")).toBeNull();
 });
