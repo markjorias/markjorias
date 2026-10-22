@@ -1,0 +1,11 @@
+.superpowers/
+node_modules/
+.next/
+.next-demo/
+out/
+.vercel/
+next-env.d.ts
+.env*.local
+test-results/
+playwright-report/
+*.tsbuildinfo
