@@ -21,7 +21,6 @@
 | **Student** | **Mark Joseph C. Orias** &nbsp;·&nbsp; `231002285` |
 | **Program** | Bachelor of Science in Computer Science (**BSCS 4A**) |
 | **Institution** | [Camarines Sur Polytechnic Colleges (CSPC)](https://cspc.edu.ph/) · College of Computer Studies |
-| **Academic Focus** | A curated academic repository portfolio demonstrating progressive mastery across Computer Vision, Digital Image Processing, Machine Learning, Systems Architecture, Cloud Computing, and Full-Stack Application Engineering. |
 
 ---
 
